@@ -30,13 +30,13 @@ In this paper, we propose a noise-aware speech separation (NASS) method, which a
 
 ## Run NASS Method #####
 
-Step1: Prepare the datasets. 
+Step1: Prepare datasets. 
 Please refer to [LibriMix repository](https://github.com/JorisCos/LibriMix).
 
-Step2: Modify the configurations.
+Step2: Modify configurations.
 Configuration files are saved in `NASS/recipes/LibriMix/separation/hparams/`
 
-Step3: Run the NASS method.
+Step3: Run NASS method.
 
 ```shell
 cd NASS/recipes/LibriMix/separation/
@@ -56,7 +56,7 @@ We provide a pretrained model on [github releases](https://github.com/TzuchengCh
 
 To use it, download "results.zip" and unzip it to `NASS/recipes/LibriMix/separation/`
 
-Then run the NASS method.
+Then run NASS method.
 
 ## Cite Our Paper #####
 
