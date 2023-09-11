@@ -1,0 +1,212 @@
+# ################################
+# Model: SepFormer for source separation
+# https://arxiv.org/abs/2010.13154
+# Dataset : Libri2mix
+# ################################
+#
+# Basic parameters
+# Seed needs to be set at top of yaml, before objects with parameters are made
+#
+seed: 1234
+__set_seed: !apply:torch.manual_seed [ !ref <seed> ]
+
+# Data params
+
+# e.g. '/yourpath/Libri2Mix/train-clean-360/'
+# the data folder is needed even if dynamic mixing is applied
+data_folder: !PLACEHOLDER
+
+# this is the base folder for dynamic mixing
+base_folder_dm: F:/data/LibriSpeech/train-clean-100/
+
+experiment_name: sepformer-libri2mix-custom
+output_folder: !ref results/<experiment_name>/<seed>
+train_log: !ref <output_folder>/train_log.txt
+save_folder: !ref <output_folder>/save
+train_data: !ref <save_folder>/custom_train.csv
+valid_data: !ref <save_folder>/custom_valid.csv
+test_data: !ref <save_folder>/custom_test.csv
+skip_prep: False
+
+ckpt_interval_minutes: 60
+
+# Experiment params
+auto_mix_prec: True # Set it to True for mixed precision
+test_only: True
+num_spks: 2
+noprogressbar: False
+save_audio: True # Save estimated sources on disk
+sample_rate: 8000
+n_audio_to_save: 50
+
+# Training parameters
+N_epochs: 200
+batch_size: 1
+lr: 0.00015
+clip_grad_norm: 5
+loss_upper_lim: 999999  # this is the upper limit for an acceptable loss
+# if True, the training sequences are cut to a specified length
+limit_training_signal_len: True
+# this is the length of sequences if we choose to limit
+# the signal length of training sequences
+training_signal_len: 32000
+
+# Set it to True to dynamically create mixtures at training time
+dynamic_mixing: False
+use_wham_noise: True
+
+use_noise_ground: True # when the followed False, count noise as speaker, including noise prediction and groundtruth, main switch
+use_noise_ground_only: False # noise goundtruth only, when False, if exits, use_noise_notest must be True
+use_noise_notest: True # no count noise, but including noise prediction and groundtruth, when True, if exits, use_noise_ground_only must be False
+use_myloss: True # depend on use_noise_ground, main switch
+myloss_param: 0.01
+use_nceloss: True # when True, use_noise_ground: True and use_noise_notest: True
+
+# Parameters for data augmentation
+use_wavedrop: False
+use_speedperturb: True
+use_rand_shift: False
+min_shift: -8000
+max_shift: 8000
+
+speedperturb: !new:speechbrain.lobes.augment.TimeDomainSpecAugment
+  perturb_prob: 1.0
+  drop_freq_prob: 0.0
+  drop_chunk_prob: 0.0
+  sample_rate: !ref <sample_rate>
+  speeds: [ 95, 100, 105 ]
+
+wavedrop: !new:speechbrain.lobes.augment.TimeDomainSpecAugment
+  perturb_prob: 0.0
+  drop_freq_prob: 1.0
+  drop_chunk_prob: 1.0
+  sample_rate: !ref <sample_rate>
+
+# loss thresholding -- this thresholds the training loss
+threshold_byloss: True
+threshold: -30
+
+# Encoder parameters
+N_encoder_out: 256
+out_channels: 256
+kernel_size: 16
+kernel_stride: 8
+
+# Dataloader options
+dataloader_opts:
+  batch_size: !ref <batch_size>
+  num_workers: 0
+
+# Specifying the network
+Encoder: !new:speechbrain.lobes.models.dual_path.Encoder
+  kernel_size: !ref <kernel_size>
+  out_channels: !ref <N_encoder_out>
+
+SBtfintra: !new:speechbrain.lobes.models.dual_path.SBTransformerBlock
+  num_layers: 8
+  d_model: !ref <out_channels>
+  nhead: 8
+  d_ffn: 1024
+  dropout: 0
+  use_positional_encoding: True
+  norm_before: True
+
+SBtfinter: !new:speechbrain.lobes.models.dual_path.SBTransformerBlock
+  num_layers: 8
+  d_model: !ref <out_channels>
+  nhead: 8
+  d_ffn: 1024
+  dropout: 0
+  use_positional_encoding: True
+  norm_before: True
+
+MaskNet: !new:speechbrain.lobes.models.dual_path.Dual_Path_Model
+  num_spks: !ref <num_spks>
+  in_channels: !ref <N_encoder_out>
+  out_channels: !ref <out_channels>
+  num_layers: 2
+  K: 250
+  intra_model: !ref <SBtfintra>
+  inter_model: !ref <SBtfinter>
+  norm: ln
+  linear_layer_after_inter_intra: False
+  skip_around_intra: True
+  use_noise_ground: !ref <use_noise_ground>
+  use_noise_ground_only: !ref <use_noise_ground_only>
+
+init_type: 'xavier'
+init_gain: 0.02
+gpu_ids: '0'
+netF_nc: 256
+opt:
+  nce_includes_all_negatives_from_minibatch: False
+  batch_size: 1
+  nce_T: 0.07
+num_patches: 256
+lambda_NCE: 2
+
+PatchSampleNet: !new:speechbrain.lobes.models.networks.PatchSampleF
+  use_mlp: True
+  init_type: !ref <init_type>
+  init_gain: !ref <init_gain>
+  gpu_ids: !ref <gpu_ids>
+  nc: !ref <netF_nc>
+  num_smp: 3
+
+Decoder: !new:speechbrain.lobes.models.dual_path.Decoder
+  in_channels: !ref <N_encoder_out>
+  out_channels: 1
+  kernel_size: !ref <kernel_size>
+  stride: !ref <kernel_stride>
+  bias: False
+
+optimizer: !name:torch.optim.Adam
+  lr: !ref <lr>
+  weight_decay: 0
+
+loss: !name:speechbrain.nnet.losses.get_si_snr_with_pitwrapper
+
+myloss: !name:speechbrain.nnet.losses.cal_si_snr
+nceloss: !new:speechbrain.nnet.patchnce.PatchNCELoss
+  opt: !ref <opt>
+
+lr_scheduler: !new:speechbrain.nnet.schedulers.ReduceLROnPlateau
+  factor: 0.5
+  patience: 2
+  dont_halve_until_epoch: 50
+
+epoch_counter: !new:speechbrain.utils.epoch_loop.EpochCounter
+  limit: !ref <N_epochs>
+
+modules:
+  encoder: !ref <Encoder>
+  decoder: !ref <Decoder>
+  masknet: !ref <MaskNet>
+  patchsamplenet: !ref <PatchSampleNet>
+
+checkpointer: !new:speechbrain.utils.checkpoints.Checkpointer
+  checkpoints_dir: !ref <save_folder>
+  recoverables:
+    encoder: !ref <Encoder>
+    decoder: !ref <Decoder>
+    masknet: !ref <MaskNet>
+    patchsamplenet: !ref <PatchSampleNet>
+    counter: !ref <epoch_counter>
+    lr_scheduler: !ref <lr_scheduler>
+
+train_logger: !new:speechbrain.utils.train_logger.FileTrainLogger
+  save_file: !ref <train_log>
+
+## If you do not want to use the pretrained separator you can simply delete pretrained_separator field.
+#pretrained_separator: !new:speechbrain.utils.parameter_transfer.Pretrainer
+#  collect_in: !ref <save_folder>
+#  loadables:
+#    encoder: !ref <Encoder>
+#    decoder: !ref <Decoder>
+#    masknet: !ref <MaskNet>
+#    patchsamplenet: !ref <PatchSampleNet>
+#  paths:
+#    encoder: speechbrain/sepformer-libri2mix/encoder.ckpt
+#    decoder: speechbrain/sepformer-libri2mix/decoder.ckpt
+#    masknet: speechbrain/sepformer-libri2mix/masknet.ckpt
+#    patchsamplenet: speechbrain/sepformer-libri2mix/patchsamplenet.ckpt
