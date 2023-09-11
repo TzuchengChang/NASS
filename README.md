@@ -28,7 +28,7 @@ pip install pyloudnorm
 
 In this paper, we propose a noise-aware speech separation (NASS) method, which aims to improve the speech quality for separated signals under noisy conditions. Specifically, NASS views background noise as an additional output and predicts it with other speakers in a mask-based manner. Then we conduct patch-wise contrastive learning on feature level to minimize the mutual information between the predicted noise output and other speakers, which suppresses the noise information in separated signals, and vice versa. Experimental results show that NASS could achieve competitive results on different datasets, and significantly improve the noise-robustness for different mask-based SS backbones with less than 0.1M parameter increase.
 
-## Run the NASS Method #####
+## Run NASS Method #####
 
 Step1: Prepare the datasets. 
 Please refer to [LibriMix repository](https://github.com/JorisCos/LibriMix).
