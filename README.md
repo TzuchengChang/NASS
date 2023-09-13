@@ -34,8 +34,9 @@ We also provide a true example from Ted Cruz with -2dB WHAM! noise mixed.
 
 Results are from Sepformer(NASS) trained on Libri2Mix. 
 
-| [Mixture](https://github.com/TzuchengChang/NASS/tree/main/resources/item1_mix.wav)  | [Speaker 1](https://github.com/TzuchengChang/NASS/tree/main/resources/item1_source1hat.wav) | [Speaker 2](https://github.com/TzuchengChang/NASS/tree/main/resources/item1_source2hat.wav) | [Noise](https://github.com/TzuchengChang/NASS/tree/main/resources/item1_source3hat.wav) |
-|----------------------------------------------------------------------------------|-------------------------------------------------------|----------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
+| [Mixture](https://github.com/TzuchengChang/NASS/raw/main/resources/item1_mix.wav)                     | [Speaker 1](https://github.com/TzuchengChang/NASS/raw/main/resources/item1_source1hat.wav)            | [Speaker 2](https://github.com/TzuchengChang/NASS/raw/main/resources/item1_source2hat.wav)            | [Noise](https://github.com/TzuchengChang/NASS/raw/main/resources/item1_source3hat.wav)                |
+|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| <audio controls src="https://github.com/TzuchengChang/NASS/raw/main/resources/item1_mix.wav"></audio> | <audio controls src="https://github.com/TzuchengChang/NASS/raw/main/resources/item1_mix.wav"></audio> | <audio controls src="https://github.com/TzuchengChang/NASS/raw/main/resources/item1_mix.wav"></audio> | <audio controls src="https://github.com/TzuchengChang/NASS/raw/main/resources/item1_mix.wav"></audio> |
 
 ## Run NASS Method #####
 
