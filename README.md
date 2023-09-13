@@ -17,16 +17,25 @@ pip install pyloudnorm
 
 ## Introduction
 
-|   ![Image 1](fig4.png) |
-|-----------------------|
+| ![Image 1](resources/fig4.png) |
+|--------------------------------|
 
-| ![Image 1](fig1.png) |
+| ![Image 1](resources/fig1.png) |
 |----------------------|
 
-|   ![Image 1](fig2.png) | ![Image 2](fig3.png) |
+|   ![Image 1](resources/fig2.png) | ![Image 2](resources/fig3.png) |
 |-----------------------|---------------------|
 
 In this paper, we propose a noise-aware speech separation (NASS) method, which aims to improve the speech quality for separated signals under noisy conditions. Specifically, NASS views background noise as an additional output and predicts it with other speakers in a mask-based manner. Then we conduct patch-wise contrastive learning on feature level to minimize the mutual information between the predicted noise output and other speakers, which suppresses the noise information in separated signals, and vice versa. Experimental results show that NASS could achieve competitive results on different datasets, and significantly improve the noise-robustness for different mask-based SS backbones with less than 0.1M parameter increase.
+
+## NASS Example #####
+
+We also provide a true example from Ted Cruz with -2dB WHAM! noise mixed. 
+Results are from Sepformer(NASS) trained on Libri2Mix. 
+
+| <audio controls src="resources/item1_mix.wav"> | <audio controls src="resources/item1_source1hat.wav"> | <audio controls src="resources/item1_source2hat.wav"> | <audio controls src="resources/item1_source3hat.wav"> |
+|------------------------------------------------|-------------------------------------------------------|-------------------------------------------------------|-------------------------------------------------------|
+| Mixture                                        | Speaker 1                                             | Speaker 2                                             | Noise                                                 |
 
 ## Run NASS Method #####
 
