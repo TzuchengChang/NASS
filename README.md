@@ -36,12 +36,6 @@ Results are from Sepformer(NASS) trained on Libri2Mix.
 
 | [Mixture](https://github.com/TzuchengChang/NASS/raw/main/resources/item1_mix.wav)                     | [Speaker 1](https://github.com/TzuchengChang/NASS/raw/main/resources/item1_source1hat.wav)            | [Speaker 2](https://github.com/TzuchengChang/NASS/raw/main/resources/item1_source2hat.wav)            | [Noise](https://github.com/TzuchengChang/NASS/raw/main/resources/item1_source3hat.wav)                |
 |-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
-| <audio controls src="https://github.com/TzuchengChang/NASS/raw/main/resources/item1_mix.wav"></audio> | <audio controls src="https://github.com/TzuchengChang/NASS/raw/main/resources/item1_mix.wav"></audio> | <audio controls src="https://github.com/TzuchengChang/NASS/raw/main/resources/item1_mix.wav"></audio> | <audio controls src="https://github.com/TzuchengChang/NASS/raw/main/resources/item1_mix.wav"></audio> |
-
-<audio controls src="resources/item1_mix.wav"></audio>
-<audio controls src="resources/item1_mix.wav"></audio>
-<audio controls src="resources/item1_mix.wav"></audio>
-<audio controls src="resources/item1_mix.wav"></audio>
 
 ## Run NASS Method #####
 
