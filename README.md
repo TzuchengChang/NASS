@@ -31,6 +31,7 @@ In this paper, we propose a noise-aware speech separation (NASS) method, which a
 ## NASS Example #####
 
 We also provide a true example from Ted Cruz with -2dB WHAM! noise mixed. 
+
 Results are from Sepformer(NASS) trained on Libri2Mix. 
 
 | <audio controls src="resources/item1_mix.wav"> | <audio controls src="resources/item1_source1hat.wav"> | <audio controls src="resources/item1_source2hat.wav"> | <audio controls src="resources/item1_source3hat.wav"> |
