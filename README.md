@@ -69,7 +69,7 @@ Then run NASS method.
 
 ## Cite Our Paper #####
 
-Please cite our [paper](https://arxiv.org/abs/2305.10761).
+Please cite our [paper](https://arxiv.org/abs/2305.10761) and star our repository.
 
 ```
 @misc{zhang2023noiseaware,
