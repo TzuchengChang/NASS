@@ -38,6 +38,11 @@ Results are from Sepformer(NASS) trained on Libri2Mix.
 |-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | <audio controls src="https://github.com/TzuchengChang/NASS/raw/main/resources/item1_mix.wav"></audio> | <audio controls src="https://github.com/TzuchengChang/NASS/raw/main/resources/item1_mix.wav"></audio> | <audio controls src="https://github.com/TzuchengChang/NASS/raw/main/resources/item1_mix.wav"></audio> | <audio controls src="https://github.com/TzuchengChang/NASS/raw/main/resources/item1_mix.wav"></audio> |
 
+<audio controls src="https://github.com/TzuchengChang/NASS/raw/main/resources/item1_mix.wav"></audio>
+<audio controls src="https://github.com/TzuchengChang/NASS/raw/main/resources/item1_mix.wav"></audio>
+<audio controls src="https://github.com/TzuchengChang/NASS/raw/main/resources/item1_mix.wav"></audio>
+<audio controls src="https://github.com/TzuchengChang/NASS/raw/main/resources/item1_mix.wav"></audio>
+
 ## Run NASS Method #####
 
 Step1: Prepare datasets. 
