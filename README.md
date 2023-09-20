@@ -1,6 +1,6 @@
 # Noise-Aware Speech Separation (NASS)
 
-This repository provides the example of Sepformer (NASS) on Libri2Mix based on SpeechBrain.
+This repository provides the example of Sepformer (NASS) on Libri2Mix based on [SpeechBrain](https://github.com/speechbrain/speechbrain).
 
 ## Install with GitHub
 
