@@ -38,8 +38,8 @@ We also provide a true example from Ted Cruz with -2dB WHAM! noise mixed.
 
 Results are from Sepformer(NASS) trained on Libri2Mix. 
 
-| Mixture                                                                            | Speaker 1                                                                                 | Speaker 2                                                                                 | Noise                                                                                     |
-|------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
+|                           Mixture                            |                          Speaker 1                           |                          Speaker 2                           |                            Noise                             |
+| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | [Download](https://github.com/TzuchengChang/NASS/raw/main/resources/item1_mix.wav) | [Download](https://github.com/TzuchengChang/NASS/raw/main/resources/item1_source1hat.wav) | [Download](https://github.com/TzuchengChang/NASS/raw/main/resources/item1_source2hat.wav) | [Download](https://github.com/TzuchengChang/NASS/raw/main/resources/item1_source3hat.wav) |
 
 ## Run NASS Method #####
