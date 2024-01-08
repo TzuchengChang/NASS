@@ -26,7 +26,7 @@ pip install pyloudnorm
 | :----------------------------------------------------------: |
 | Fig1. The overall pipeline of NASS. $x_n$ and $\hat n$ denote the noisy input and predicted noise. $\hat{s}_1$ and $\hat{s}_2$ are separated speech while $s_1$ and $s_2$ are the ground-truth. $h_{\hat s_1}$, $h_{\hat s_2}$ and $h_{\hat n}$ in dashed box are predicted representations, while $h_{s_1}$ and $h_{s_2}$ in solid box are the ground-truth. ``P" denotes the mutual information between separated and ground-truth speech is maximized while ``N" denotes the mutual information between separated speech and noise is minimized. |
 
-| <img src="blob/main/resources/figure2.png" alt="Image 1" style="zoom: 25%;" /> | <img src="blob/main/resources/figure3.png" alt="Image 2" style="zoom: 200%;" /> |
+| <img src="resources/figure2.png" alt="Image 1" style="zoom: 25%;" /> | <img src="resources/figure3.png" alt="Image 2" style="zoom: 200%;" /> |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | Fig2.  The illustration of patch-wise contrastive learning. For the $i$-th sampling of $K$ times, one query example $r^i_q$, positive example $r^i_p$ and $M$ negative examples ${r_n^{i,j}}$ ($j \in [1,M]$) are sampled from predicted speech representation $h_{\hat s_a}$, ground-truth speech representation $h_{s_a}$ and predicted noise representation $h_{\hat n}$, respectively, "CS" denotes cosine similarity. | Fig3. Spectrum results on Libri2mix with Sepformer. Subplot (a) denotes the mixture; (b), (c) are baseline results; (d), (e), (f) are NASS results. Note that (d) is the noise output. |
 
