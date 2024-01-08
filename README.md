@@ -22,7 +22,7 @@ pip install pyloudnorm
 | ![Image 1](resources/figure1.png) |
 |:---------------------------------:|
 
-|          ![Image 1](blob/main/resources/figure.png)          |
+|               ![Image 1](resources/figure.png)               |
 | :----------------------------------------------------------: |
 | Fig1. The overall pipeline of NASS. $x_n$ and $\hat n$ denote the noisy input and predicted noise. $\hat{s}_1$ and $\hat{s}_2$ are separated speech while $s_1$ and $s_2$ are the ground-truth. $h_{\hat s_1}$, $h_{\hat s_2}$ and $h_{\hat n}$ in dashed box are predicted representations, while $h_{s_1}$ and $h_{s_2}$ in solid box are the ground-truth. ``P" denotes the mutual information between separated and ground-truth speech is maximized while ``N" denotes the mutual information between separated speech and noise is minimized. |
 
