@@ -77,10 +77,10 @@ Then run NASS method.
 Please cite our [paper](https://arxiv.org/abs/2305.10761) and star our repository.
 
 ```
-@misc{zhang2023noiseaware,
+@misc{zhang2024noiseaware,
       title={Noise-Aware Speech Separation with Contrastive Learning}, 
       author={Zizheng Zhang and Chen Chen and Hsin-Hung Chen and Xiang Liu and Yuchen Hu and Eng Siong Chng},
-      year={2023},
+      year={2024},
       eprint={2305.10761},
       archivePrefix={arXiv},
       primaryClass={cs.SD}
