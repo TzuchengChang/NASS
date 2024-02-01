@@ -19,10 +19,10 @@ pip install pyloudnorm
 
 ## Introduction
 
-| ![Image 1](https://github.com/TzuchengChang/NASS/blob/main/resources/figure1.png) |
-| :----------------------------------------------------------: |
+| ![Image 1](https://github.com/TzuchengChang/NASS/speechbrain/blob/main/resources/figure1.png) |
+|:---------------------------------------------------------------------------------------------:|
 
-| ![Image 2](https://github.com/TzuchengChang/NASS/blob/main/resources/figure.png) |
+| ![Image 2](https://github.com/TzuchengChang/NASS/speechbrain/blob/main/resources/figure.png) |
 | :----------------------------------------------------------: |
 | Fig1. The overall pipeline of NASS. $x_n$ and $\hat n$ denote the noisy input and predicted noise. $\hat{s_1}$ and $\hat{s_2}$ are separated speech while ${s_1}$ and ${s_2}$ are the ground-truth. $h_{\hat {s_1}}$, $h_{\hat {s_2}}$ and $h_{\hat n}$ in dashed box are predicted representations, while $h_{s_1}$ and $h_{s_2}$ in solid box are the ground-truth. "P" denotes the mutual information between separated and ground-truth speech is maximized while "N" denotes the mutual information between separated speech and noise is minimized. |
 
@@ -40,7 +40,7 @@ Results are from Sepformer(NASS) trained on Libri2Mix.
 
 |                           Mixture                            |                          Speaker 1                           |                          Speaker 2                           |                            Noise                             |
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| [Download](https://github.com/TzuchengChang/NASS/raw/main/resources/item1_mix.wav) | [Download](https://github.com/TzuchengChang/NASS/raw/main/resources/item1_source1hat.wav) | [Download](https://github.com/TzuchengChang/NASS/raw/main/resources/item1_source2hat.wav) | [Download](https://github.com/TzuchengChang/NASS/raw/main/resources/item1_source3hat.wav) |
+| [Download](https://github.com/TzuchengChang/NASS/speechbrain/raw/main/resources/item1_mix.wav) | [Download](https://github.com/TzuchengChang/NASS/speechbrain/raw/main/resources/item1_source1hat.wav) | [Download](https://github.com/TzuchengChang/NASS/speechbrain/raw/main/resources/item1_source2hat.wav) | [Download](https://github.com/TzuchengChang/NASS/speechbrain/raw/main/resources/item1_source3hat.wav) |
 
 ## Run NASS Method #####
 
