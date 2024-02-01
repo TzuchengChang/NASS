@@ -10,7 +10,7 @@ Once you have created your Python environment (Python 3.7+) you can simply type:
 
 ```shell
 git clone https://github.com/TzuchengChang/NASS
-cd NASS
+cd NASS/speechbrain
 pip install -r requirements.txt
 pip install --editable .
 pip install mir-eval
@@ -53,7 +53,7 @@ Configuration files are saved in `NASS/recipes/LibriMix/separation/hparams/`
 Step3: Run NASS method.
 
 ```shell
-cd NASS/recipes/LibriMix/separation/
+cd NASS/speechbrain/recipes/LibriMix/separation/
 python train.py hparams/sepformer-libri2mix.yaml --data_folder /yourpath/Libri2Mix/
 ```
 
