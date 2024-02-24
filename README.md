@@ -59,25 +59,25 @@ python train.py hparams/sepformer-libri2mix.yaml --data_folder /yourpath/Libri2M
 
 We also provide a yaml for custom data, and make sure your custom folder structure is like：
 
-custom  
-|-- train  
-|   |-- mixture  
-|   |-- noise  
-|   |-- source1  
-|   |-- source2  
-|   |-- source3  
-|-- valid  
-|   |-- mixture  
-|   |-- noise  
-|   |-- source1  
-|   |-- source2  
-|   |-- source3  
-|-- test  
-    |-- mixture  
-    |-- noise  
-    |-- source1  
-    |-- source2  
-    |-- source3
+| custom  
+|   |-- train  
+|   |   |-- mixture  
+|   |   |-- noise  
+|   |   |-- source1  
+|   |   |-- source2  
+|   |   |-- source3  
+|   |-- valid  
+|   |   |-- mixture  
+|   |   |-- noise  
+|   |   |-- source1  
+|   |   |-- source2  
+|   |   |-- source3  
+|   |-- test  
+|   |   |-- mixture  
+|   |   |-- noise  
+|   |   |-- source1  
+|   |   |-- source2  
+|   |   |-- source3
 
 ```shell
 python train.py hparams/sepformer-libri2mix-custom.yaml
