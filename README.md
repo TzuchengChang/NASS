@@ -94,7 +94,7 @@ Then run NASS method.
 
 ## Cite Our Paper #####
 
-Please cite our [paper](https://arxiv.org/abs/2305.10761) and star our repository.
+Please cite our [paper](https://ieeexplore.ieee.org/abstract/document/10448214) and star our repository.
 
 ```
 @inproceedings{zhang2024noise,
