@@ -39,6 +39,7 @@ class PatchSampleF(nn.Module):
         for feat_id, feat in enumerate(feats):
             if self.use_mlp:
                 conv = getattr(self, 'conv')
+                feat = feat.permute(1, 0, 2, 3)
                 feat = conv(feat)
             B, H, W = feat.shape[0], feat.shape[2], feat.shape[3]
             feat_reshape = feat.permute(0, 2, 3, 1).flatten(1, 2)

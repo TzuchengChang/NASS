@@ -60,16 +60,16 @@ def get_wham_noise_filenames(hparams):
     if "Libri" in hparams["data_folder"]:
         # Data folder should point to Libri2Mix folder
         if hparams["sample_rate"] == 8000:
-            noise_path = "wav8k/min/train-100/mynoise/"
+            noise_path = "wav8k/min/train-100/noise/"
         elif hparams["sample_rate"] == 16000:
-            noise_path = "wav16k/min/train-100/mynoise/"
+            noise_path = "wav16k/min/train-100/noise/"
         else:
             raise ValueError("Unsupported Sampling Rate")
     else:
         if hparams["sample_rate"] == 8000:
-            noise_path = "wav8k/min/tr/mynoise/"
+            noise_path = "wav8k/min/tr/noise/"
         elif hparams["sample_rate"] == 16000:
-            noise_path = "wav16k/min/tr/mynoise/"
+            noise_path = "wav16k/min/tr/noise/"
         else:
             raise ValueError("Unsupported Sampling Rate")
 
